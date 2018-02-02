@@ -46,6 +46,7 @@ var contatos = /** @class */ (function () {
     });
     contatos.prototype.calcIdade = function (dataNasc) {
         var atual = new Date('01/31/2018');
+        console.log(2018 - 1998);
         return atual.getFullYear() - dataNasc.getFullYear();
     };
     return contatos;

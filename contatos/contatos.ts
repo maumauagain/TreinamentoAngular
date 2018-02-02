@@ -38,6 +38,7 @@ export class contatos implements ContatoInterface {
 
     calcIdade(dataNasc : Date): number{
         var atual: Date = new Date('01/31/2018');
+        console.log(2018 - 1998);
         return atual.getFullYear() - dataNasc.getFullYear();
         
     }

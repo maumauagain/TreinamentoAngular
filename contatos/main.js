@@ -8,6 +8,8 @@ var main = /** @class */ (function () {
     main.criarContato = function (nomeCompleto, email, dataNasc, favorito, sexo) {
         var contato = new contatos_1.contatos(nomeCompleto, email, dataNasc, favorito, sexo_enum_1.sexoTipo.masculino);
         this.exibirMensagem('Contato criado!!!');
+        contato.calcIdade.toString();
+        //console.log(x);
     };
     main.exibirMensagem = function (mensagem) {
         mensagem = mensagem || 'Nenhuma mensagem a ser exibida';
