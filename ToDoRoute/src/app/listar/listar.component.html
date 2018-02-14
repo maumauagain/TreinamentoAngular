@@ -1,0 +1,26 @@
+  
+
+  <ul>
+    <div class="row">
+     <li style="color: black;" *ngFor="let tasks of task; index as i">
+        <div class="col s6 m4 l4">
+          <div class="card" style="background-color: #26a69a;">
+            <div class="card-content white-text">
+              <span class="card-title">{{ tasks.titulo }}</span>
+              <p>{{ tasks.descricao }}</p>
+            </div>
+
+            <div class="card-action" style="top: 40px">
+              <a (click)="remover_storage(i)"><i class="material-icons right">delete</i></a>
+              <a [routerLink]="['../editar', i]"><i class="material-icons right">create</i></a>
+            </div>
+
+          </div>
+        </div>
+      </li>
+    </div>        
+  </ul>
+
+
+
+    

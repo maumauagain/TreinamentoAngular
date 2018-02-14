@@ -1,0 +1,22 @@
+<div class="container">
+    <h3>Login</h3>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <input [(ngModel)]="usuario.nome" id="usuario" type="text" name="action" class="validate">
+            <label class="active" for="usuario">Usuário</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <input [(ngModel)]="usuario.senha" name="action" id="senha" type="password" class="validate">
+            <label class="active" for="senha">Senha</label>
+        </div>
+    </div>
+
+    <button class="btn waves-effect waves-light" type="submit" (click)="fazerLogin()">Login
+            <i class="material-icons right">send</i>
+          </button>
+
+</div>

@@ -1,0 +1,29 @@
+
+<h1> {{ title }} </h1>
+
+<div class="container">
+  <div class="form-content">
+
+    <form class="center">
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Titulo da tarefa" name="titulo" id="titulo" type="text" class="validate">
+          <label for="titulo">Titulo</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Descrição da tarefa" id="descricao" type="text" class="validate">
+          <label for="desc">Descrição da tarefa</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <button (click)="enviar($event)" class="btn waves-effect waves-light" id="btn" name="action">Cadastrar
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </form>
+  </div> 
+</div>

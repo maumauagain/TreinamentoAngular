@@ -1,0 +1,14 @@
+<h1>Editar Tarefas</h1>
+<div class="container">
+  <div class="eh">
+
+    <input type="text" id="titulo" value="{{task.titulo}}" (input)="onInput()" />
+    <input type="text" id="descricao" value="{{task.descricao}}" />
+
+    <div class="row" style="text-align: center">
+        <button (click)="editar($event, id)" class="btn waves-effect waves-light" id="btn" name="action">Editar
+          <i class="material-icons right">send</i>
+        </button>
+      </div>  
+  </div>
+</div>

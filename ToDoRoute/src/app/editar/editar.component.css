@@ -1,0 +1,11 @@
+.eh {
+    padding: 80px;
+    border: 1px solid #26a69a;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2%;
+    font-family: 'Open sans';
+    color: #26a69a;
+}
