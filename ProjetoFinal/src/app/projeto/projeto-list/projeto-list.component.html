@@ -1,0 +1,36 @@
+<!-- <ul>
+  <li *ngFor="let proj of projetos">{{proj.Nome}}<br> {{proj.Start}}<br>{{proj.Finish}}<br> {{proj.Boss}}<br> 
+    {{proj.Description}}<br> <span *ngFor="let equip of proj.Equipe"> {{equip.Membro}} {{equip.CargaHoraria}}<br></span>  {{hora(proj.HoraCadastro)}}
+    <button (click)="RemoveProj(proj._id)">Del</button>
+    <a routerLink="/projeto/editar"><button (click)="AlteraProj(proj)">Edit</button></a><br><br>
+  </li>
+</ul> -->
+
+<div fxFlex="100" fxLayout="row wrap">
+    <div class="title" fxLayout="row" fxFlex="100" fxLayoutAlign="center">
+      <h1>Lista de Projetos</h1>
+    </div>
+  
+    <mat-accordion fxLayout="column" fxFlex="32" fxFlex.lt-md="100" fxFlex.gt-sm="31.5" *ngFor="let proj of projetos">
+      <div fxLayout="row wrap" >
+        <mat-expansion-panel fxFlex="100" (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false" >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{proj.Nome}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p> <span class="bold">Nome:</span> {{proj.Nome}}</p>
+          <p> <span class="bold">Inicio:</span> {{data(proj.Start)}}</p>
+          <p> <span class="bold">Fim:</span> {{data(proj.Finish)}}</p>
+          <p> <span class="bold">Responsavel:</span> {{proj.Boss}}</p>
+          <p> <span class="bold">Descrição:</span> {{proj.Description}}</p>
+          <p *ngFor="let equip of proj.Equipe"><span class="bold">Membro:</span> {{equip.Membro}} <span class="bold">Carga Hr:</span> {{equip.CargaHoraria}}<br></p>
+          <button (click)="RemoveProj(proj._id)"><i class="material-icons">delete</i></button>
+          <a routerLink="/projeto/editar"><button (click)="AlteraProj(proj)"><i class="material-icons">create</i></button></a>
+          <span class="right"> {{hora(proj.HoraCadastro)}} </span>
+        </mat-expansion-panel>
+      </div>
+      </mat-accordion>
+  
+  </div>

@@ -1,0 +1,45 @@
+<div class="content" fxLayout="row wrap" fxFlex="100" fxLayoutAlign="center">
+    <div class="title" fxFlex="100" fxLayoutAlign="center">
+        <h1>Cadastrar Colaborador</h1>
+    </div>
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()" fxLayoutAlign="space-between" fxLayout="row wrap" fxFlex="50" fxFlex.lt-md="70">
+        <mat-form-field fxFlex="100" class="example-full-width">
+            <input matInput placeholder="Nome" formControlName="Nome">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100" class="example-full-width">
+            <input matInput placeholder="Email" formControlName="Email">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="30" fxFlex.lt-md="100" class="example-full-width">
+            <input matInput placeholder="Telefone" formControlName="Telefone">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="33" fxFlex.lt-md="100">
+            <input formControlName="Birth" matInput [matDatepicker]="picker" placeholder="Data Nascimento">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="33" fxFlex.lt-md="100">
+            <input matInput placeholder="Carga Horaria" formControlName="cargaHoraria">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="50" fxFlex.lt-md="100">
+            <mat-select formControlName="Escolaridade" placeholder="Escolaridade">
+                <mat-option value="Ensino Fundamental">Ensino Fundamental</mat-option>
+                <mat-option value="Ensino Fundamental">Ensino Médio</mat-option>
+                <mat-option value="Ensino Fundamental">Ensino Superior</mat-option>
+                <mat-option value="Ensino Fundamental">Pós Graduação</mat-option>
+                <mat-option value="Ensino Fundamental">Mestrado</mat-option>
+                <mat-option value="Ensino Fundamental">Doutorado</mat-option>
+            </mat-select>
+        </mat-form-field>
+            
+        <div fxFlex="100" fxLayoutAlign="center">
+            <button class="btn" type="submit" [disabled]="!formulario.valid">Enviar</button>
+        </div>
+    </form>
+</div>
+
+

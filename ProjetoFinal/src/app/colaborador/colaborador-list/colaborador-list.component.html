@@ -1,0 +1,36 @@
+<!-- <ul>
+  <li *ngFor="let colab of colaboradores"> {{colab.Nome}}, {{colab.Email}}, {{colab.Telefone}},
+      {{colab.Birth}},{{colab.CargaHoraria}},{{colab.Escolaridade}}, {{horaCadastro(colab.HoraCadastro)}}
+      <button (click)="del(colab._id)">Del</button>
+      <a routerLink="/colaborador/editar"><button (click)="alteraColab(colab)">Edit</button></a>
+  </li>
+</ul> -->
+
+<div fxFlex="100" fxLayout="row wrap">
+  <div class="title" fxLayout="row" fxFlex="100" fxLayoutAlign="center">
+    <h1>Lista de Colaboradores</h1>
+  </div>
+
+  <mat-accordion fxLayout="column" fxFlex="32" fxFlex.lt-md="100" fxFlex.gt-sm="31.5" *ngFor="let colab of colaboradores">
+    <div fxLayout="row wrap" >
+      <mat-expansion-panel fxFlex="100" (opened)="panelOpenState = true"
+                          (closed)="panelOpenState = false" >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{colab.Nome}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p> <span class="bold">Nome:</span> {{colab.Nome}}</p>
+        <p> <span class="bold">Email:</span> {{colab.Email}}</p>
+        <p> <span class="bold">Telefone:</span> {{colab.Telefone}}</p>
+        <p> <span class="bold">Data Nascimento:</span> {{data(colab.Birth)}}</p>
+        <p> <span class="bold">Carga Horaria:</span> {{colab.CargaHoraria}}</p>
+        <p> <span class="bold">Escolaridade:</span> {{colab.Escolaridade}}</p>
+        <button (click)="del(colab._id)"><i class="material-icons">delete</i></button>
+        <a routerLink="/colaborador/editar"><button (click)="alteraColab(colab)"><i class="material-icons">create</i></button></a>
+        <span class="right"> {{horaCadastro(colab.HoraCadastro)}} </span>
+      </mat-expansion-panel>
+    </div>
+    </mat-accordion>
+
+</div>

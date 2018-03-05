@@ -1,0 +1,73 @@
+<div class="content" fxLayout="row wrap" fxFlex="100" fxLayoutAlign="center">
+    <div class="title" fxFlex="100" fxLayoutAlign="center">
+        <h1>Cadastrar Projeto</h1>
+    </div>
+
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()" fxLayoutAlign="space-between" fxLayout="row wrap" fxFlex="50" fxFlex.lt-md="70">
+        <mat-form-field fxFlex="100">
+            <input matInput placeholder="Nome do Projeto" type="text" formControlName="Nome" id="nome">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="49">
+            <input matInput [matDatepicker]="picker" placeholder="Inicio do Projeto" type="text" formControlName="Start" id="start">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="49">
+            <input matInput [matDatepicker]="picker2" placeholder="Fim do Projeto" type="text" formControlName="Finish" id="finish">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="50" fxFlex.lt-md="100">
+            <mat-select formControlName="Boss" placeholder="Responsavel">
+                <mat-option *ngFor="let colab of colaboradores" [value]="colab.Nome">{{colab.Nome}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <textarea matInput placeholder="Descrição do Projeto" formControlName="Description"></textarea>
+        </mat-form-field>
+
+    <!-- EQUIPES -->
+
+    <div class="form-group" fxFlex="100" formArrayName="Equipe">
+        <div *ngFor="let equipe of formulario.controls.Equipe.controls;let i=index;"> 
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Membro #{{ i + 1 }}
+
+                    <span class="red" *ngIf="formulario.controls.Equipe.controls.length > 1" (click)="removeEquipe(i)">
+                        Remove
+                    </span>
+                </div>
+
+                <div class="panel-body" [formGroupName]="i" fxLayout="row wrap" fxLayoutAlign="space-between">
+                    <mat-form-field fxFlex="49" fxFlex.lt-md="100">
+                        <mat-select formControlName="Membro" placeholder="Membro" required>
+                            <mat-option *ngFor="let colab of colaboradores" [value]="colab.Nome">{{colab.Nome}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex="49" fxFlex.lt-md="100">
+                        <input matInput placeholder="Carga Horaria" type="text" formControlName="CargaHoraria" required>
+                    </mat-form-field>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+        <!-- add Equipe button -->
+        <div class="text-right">
+            <a (click)="addEquipe()" class="btnAdd">Add Membros</a>
+        </div>
+
+        <div class="botao" fxFlex="100" fxLayoutAlign="center">
+            <button class="btn" type="submit" [disabled]="!formulario.valid">Enviar</button>
+        </div>
+    </form>
+</div>
